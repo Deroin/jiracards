@@ -1,5 +1,5 @@
 {% if tickets is empty %}
-    No tickets are available for the introduced sprint ID. Please try again. <br /><br />
+    No tickets are available for the introduced query. Please try again. <br /><br />
     [ <a href="/">Go back</a> ]
 {% else %}
     {% for ticket in tickets %}
@@ -14,7 +14,7 @@
         <div class="markers">
         <p style="color: green">Development: </p>
         <p style="color: orange">Code Review: </p>
-        <p style="color: blue">QC Assurance: </p>
+        <p style="color: blue">QC Testing: </p>
         <p style="color: red">Blocked: </p>
         <p style="color: darkgrey">Investigations: </p></div>
         {% if ticket.rank is defined %}
