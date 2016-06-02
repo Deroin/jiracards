@@ -1,0 +1,34 @@
+{% if tickets is empty %}
+    No tickets are available for the introduced sprint ID. Please try again. <br /><br />
+    [ <a href="/">Go back</a> ]
+{% else %}
+    {% for ticket in tickets %}
+    <div class="ticket">
+        <div class="priority"><img src="/img/priorities/{{ ticket.priority|lower }}.png"></div>
+        <div class="issuetype"><img src="/img/types/{{ ticket.issuetype|lower }}.png"></div>
+        {% if ticket.epic is defined %}
+        <div class="epic">{{ ticket.epic }}</div>
+        {% endif %}
+        <div class="number">{{ ticket.key }}</div>
+        <div class="summary">{{ ticket.summary }}</div>
+        <div class="markers">
+        <p style="color: green">Development: </p>
+        <p style="color: orange">Code Review: </p>
+        <p style="color: blue">QC Assurance: </p>
+        <p style="color: red">Blocked: </p>
+        <p style="color: darkgrey">Investigations: </p></div>
+        {% if ticket.rank is defined %}
+        <div class="rank">{{ ticket.rank }}</div>
+        {% endif %}
+        {% if ticket.parent is not empty %}
+        <div class="parent">{{ ticket.parent }}</div>
+        {% endif %}
+        <div class="reporter">{{ ticket.reporter }}</div>
+        <div class="assignee">
+            <p class="name">{{ ticket.assignee }}</p>
+            <img class="avatar" src="{% if ticket.avatar is empty %} /img/no-image.png {% else  %} {{ ticket.avatar }} {% endif %}" />
+        </div>
+        <div class="remaining_time">{{ ticket.updated }}</div>
+    </div>
+    {% endfor %}
+{% endif %}
