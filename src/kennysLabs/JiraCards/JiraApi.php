@@ -147,11 +147,11 @@ class JiraApi {
      * @param string $query
      * @param array $data
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     protected function query($method, $query, $data = array()) {
         $result = $this->sendRequest( $method, $query, $data );
-        if( $result === false ) throw new Exception("It wasn't possible to get JIRA url ".$this->path . $query." with username " . $this->username);
+        if ($result === false) throw new \Exception("It wasn't possible to get JIRA url " . $this->path . $query . " with username " . $this->username);
         return json_decode($result);
     }
 
@@ -161,7 +161,7 @@ class JiraApi {
      * @param $query
      * @param array $data
      * @return string
-     * @throws Exception
+     * @throws \Exception
      */
     public function sendRequest($method, $query, $data = array()) {
 
@@ -188,7 +188,7 @@ class JiraApi {
         $result = curl_exec($ch);
 
         if (is_null($result)) {
-            throw new Exception("JIRA Rest server returns unexpected result.");
+            throw new \Exception("JIRA Rest server returns unexpected result.");
         }
         return $result;
     }

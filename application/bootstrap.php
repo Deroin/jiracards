@@ -8,9 +8,9 @@ try {
     echo 'Error: ' . $e->getMessage() . "\n";
 }
 
-register_shutdown_function( "kennysLabs\CommonLibrary\Logger::checkForFatal" );
-set_error_handler( "kennysLabs\CommonLibrary\Logger::logError" );
-set_exception_handler("kennysLabs\CommonLibrary\Logger::logException" );
+register_shutdown_function("kennysLabs\\CommonLibrary\\Logger::checkForFatal");
+set_error_handler("kennysLabs\\CommonLibrary\\Logger::logError");
+set_exception_handler("kennysLabs\\CommonLibrary\\Logger::logException");
 
 error_reporting( E_ALL );
 ini_set('display_errors', 1);

@@ -21,9 +21,9 @@ class Logger {
 
     /**
      * Uncaught exception handler.
-     * @param \Exception $e
+     * @param \Throwable $e
      */
-    public static function logException( \Exception $e )
+    public static function logException(\Throwable $e)
     {
         if(Application::getInstance()->getConfig()->{'main_section'}['test_mode'] == 'true') {
             if (RUN_ENV == 'www') {
