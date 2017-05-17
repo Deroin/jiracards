@@ -233,6 +233,8 @@ class BaseApplication {
         $prefix = $this->config->{'main_section'}['url_prefix'];
         $route = rtrim($route, '/');
         $route = str_replace($prefix, "", $route);
+        $route = str_replace('//', '/', $route);
+        echo "<!-- $route -->";
         $uri = explode('/',
             explode('?', $route)[0]
         );
