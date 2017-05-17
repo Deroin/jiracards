@@ -14,8 +14,11 @@ class IndexController extends BaseController
 
     public function fetchHtmlAction()
     {
+        $user = $this->getRequestData('user');
+        $password = $this->getRequestData('password');
+
         $jira = new JiraApi($this->getApplication()->getConfig()->{'jira'}['url']);
-        $jira->auth($this->getApplication()->getConfig()->{'jira'}['username'], $this->getApplication()->getConfig()->{'jira'}['password']);
+        $jira->auth($user, $password);
 
         if(!empty($this->getRequestData('sprint'))) {
             $jql = sprintf('sprint = %s', $this->getRequestData('sprint'));

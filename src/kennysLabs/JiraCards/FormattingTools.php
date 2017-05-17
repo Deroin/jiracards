@@ -44,7 +44,8 @@ class FormattingTools {
             "parent" => isset($ticket->fields->parent) ? $ticket->fields->parent->key : "",
             "avatar" => $avatar,
             "remaining_time" => $time,
-            "updated" =>  substr($ticket->fields->updated,0, 10)
+            "updated" =>  substr($ticket->fields->updated,0, 10),
+            "story_points" => $ticket->fields->customfield_10133
         );
 
         /**

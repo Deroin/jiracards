@@ -1,7 +1,11 @@
 <div class="mainPage">
     <h3>Ticket fetcher from JIRA for printing.</h3>
+    <img style="float: right" src="/img/sprintid.png">
+    <form method="POST" action="/index/fetch-html/">
+    Please specify your Jira login data:<br /><br />
+    <input type="text" name="user" value="" placeholder="User Name"><br /><br />
+    <input type="password" name="password" value="" placeholder="Password"><br/><br/>
     Please specify the sprint ID:<br /><br />
-    <form method="get" action="/index/fetch-html/">
     <input type="text" name="sprint" value="" placeholder="Sprint ID"><br /><br />OR<br /><br />
     <input type="text" name="tickets" value="" placeholder="Ticket ID"><br />For example TML-12345 or TMLSD-6789. For multiple ticket please use comma as a separator.<br/><br/>
     <input type="submit" name="submitForm" value="Submit">
